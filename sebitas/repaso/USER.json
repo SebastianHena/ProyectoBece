@@ -1,0 +1,84 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "USER",
+    "dateExported": "2023-03-24T22:43:34.580Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "150a5ef1-ee45-4f8f-94dd-f260dd7e3869",
+            "colId": "9f5e4b1b-f461-414d-895f-ff3287a9c712",
+            "containerId": "",
+            "name": "DELETE",
+            "url": "http://localhost:3000/api/user/3",
+            "method": "DELETE",
+            "sortNum": 10000,
+            "created": "2023-03-24T22:42:38.805Z",
+            "modified": "2023-03-24T22:42:38.805Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "d2d151ad-c545-409b-9003-61bbba993cc8",
+            "colId": "9f5e4b1b-f461-414d-895f-ff3287a9c712",
+            "containerId": "",
+            "name": "MOSTRAR",
+            "url": "http://localhost:3000/api/user",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2023-03-24T22:42:46.253Z",
+            "modified": "2023-03-24T22:42:46.253Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "df32090f-595f-4487-940e-c0846d352977",
+            "colId": "9f5e4b1b-f461-414d-895f-ff3287a9c712",
+            "containerId": "",
+            "name": "ACTUALIZAR",
+            "url": "http://localhost:3000/api/user",
+            "method": "PUT",
+            "sortNum": 30000,
+            "created": "2023-03-24T22:42:50.660Z",
+            "modified": "2023-03-24T22:42:50.660Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"id\":3, \n  \"NAME\":\"luis\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "05da89f0-1ca5-4f4f-a207-9d3e1def33b2",
+            "colId": "9f5e4b1b-f461-414d-895f-ff3287a9c712",
+            "containerId": "",
+            "name": "BUSCAR",
+            "url": "http://localhost:3000/api/user",
+            "method": "GET",
+            "sortNum": 40000,
+            "created": "2023-03-24T22:42:54.580Z",
+            "modified": "2023-03-24T22:42:54.580Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "013ecdfe-7eae-49fa-ba32-a8d48c33b0f9",
+            "colId": "9f5e4b1b-f461-414d-895f-ff3287a9c712",
+            "containerId": "",
+            "name": "INSERTAR",
+            "url": "http://localhost:3000/api/user",
+            "method": "POST",
+            "sortNum": 50000,
+            "created": "2023-03-24T22:43:20.404Z",
+            "modified": "2023-03-24T22:43:20.404Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        }
+    ]
+}
