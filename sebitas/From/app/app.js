@@ -43,7 +43,7 @@ app.use("/auth", passport.authenticate("auth-google",{
 
 app.use("/", routeHome)
 app.use("/",route)
-app.use("/",dash)
+app.use("/v1",dash)
 
 
 export default app;

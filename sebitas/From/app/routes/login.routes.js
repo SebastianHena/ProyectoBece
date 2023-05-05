@@ -24,7 +24,7 @@ const token = jwt.sign(payload,
     });
 
 res.cookie("cksba",token);
-res.redirect("/inicio");
+res.redirect("/v1/inicio");
 // res.render("backoffice",{nombre:name});
 // res.redirect
 });
