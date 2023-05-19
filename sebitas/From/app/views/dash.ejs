@@ -8,16 +8,19 @@
   <!-- Content Wrapper. Contains page content -->
 
   <% if (menu == 0 ){ %>
-    <%-include("partial/dashinicio.ejs");%>
+    <%- include("partial/dashinicio.ejs");%>
   <% } %>
   <% if (menu == 1 ){ %>
-    <%-include("partial/dashuser.ejs");%>
+    <%- include("partial/dashuser.ejs");%>
   <% } %>
   <% if (menu == 2 ){ %>
-    <%-include("partial/dashproducto.ejs");%>
+    <%- include("partial/dashproducto.ejs");%>
   <% } %>
   <% if (menu == 3 ){ %>
-    <%-include("partial/dashproducto.ejs");%>
+    <%- include("partial/dashproducto.ejs");%>
+  <% } %>
+  <% if (menu == 4 ){ %>
+    <%- include("partial/dashedituser.ejs");%>
   <% } %>
   <!-- /.content-wrapper -->
   <%- include("partial/dashfooter.ejs");%>

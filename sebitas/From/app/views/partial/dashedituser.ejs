@@ -1,0 +1,67 @@
+<div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+          <h1>
+           Usuarios
+          </h1>
+          <div class="info-box">
+            <span class="info-box-icon bg-aqua"><i class="ion ion-ios-people-outline"></i></span>
+            <div class="info-box-content">
+              <span class="info-box-text">N° de usuarios</span>
+              <span class="info-box-number"></span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <ol class="breadcrumb">
+            <li><a href="/v1/usuario"><i class="fa fa-home"></i></a></li>
+          </ol>
+        </section> 
+
+        <section class="content">
+            <!-- Default box -->
+            <div class="box">
+              <div class="box-header with-border">
+                <h3 class="box-title">
+                </h3>
+                <div class="box-tools pull-right">
+                  <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
+                          title="Collapse">
+                    <i class="fa fa-minus"></i></button>
+                  <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
+                    <i class="fa fa-times"></i></button>
+                </div>
+              </div>
+              <div class="box-body">
+                <form action="guardar" method="post">
+                <div class="form-group">
+                    <label>ID</label>
+                    <input type="text" 
+                    value="<%= datos.id%>"
+                    name="id"
+                    class="form-control"
+                    readonly >
+                  </div>
+                  <div class="input-group">
+                    <span class="input-group-addon">@</span>
+                    <input type="text"
+                     class="form-control"
+                    value="<%= datos.name%>"
+                    name="name"
+                     placeholder="Usuario" 
+                    >
+                  </div>
+
+              </div>
+              <div class="box-footer">
+                <button type="submit" class="btn btn-app">
+                  <i class="fa fa-save"></i> Save
+                </button>
+                <a class="btn btn-app">
+                  <i class="fa fa-times"></i> Cancel
+                </a>
+              </form>
+              </div>
+            </div>
+          </section>
+
+ </div>

@@ -33,19 +33,19 @@ dash.get("/usuario", async (req, res)=>{
         try {
             const token = jwt.verify(req.cookies.cksba, 
                 process.env.SECRET_KEY)
-// CONSUMIR API
-                let ruta = "http://localhost:3000/api/user"
+                // CONSUMIR API
+                let ruta = "http://localhost:3000/api/user";
+                // console.log(datos);
                 let option = {
                     method:"GET"
                 }
                 let datos= {};
+                console.log("prueba2");
                 const result =  await fetch(ruta, option)
                 .then(response => response.json())
                 .then(data =>{
                     datos = data[0]
-                    // console.log(data[0]);
                 });
-
                 
                 res.render('dash',{
 
@@ -110,8 +110,17 @@ dash.post("/guardar", (req,res)=>{
          let data={
             name:req.body.name
         }
-        let ruta = "http://localhost:3000/api/user";
         let method = "post";
+
+        if (req.body.id){
+            data = {
+                id : req.body.id,
+                name : req.body.name
+            }
+            method = "put"
+        }
+
+        let ruta = "http://localhost:3000/api/user";
         let option = {
             method : metodo,
             headers : {
@@ -141,5 +150,34 @@ dash.get("/salir",(req,res)=>{
      res.clearCookie("cksba")
      res.redirect("/");
 });
+
+dash.get("/edit-user", (req, res)=>{
+    const id = req.query.id;
+    const name = req.query.name;
+
+    // res.send(id+ " " +name);
+
+    let datos = {
+        id:id,
+        name:name
+    }
+
+    if(req.cookies.cksba){
+        try {
+            const token = jwt.verify(
+                re.cookies.cksba,
+                process.env.SECRET_KEY)
+                res.render("dash",{
+                    "nombre":token.nombre,
+                    "foto":token.foto,
+                    "menu": 1,
+                    "datos":datos
+                })   
+     
+        } catch (error) {
+            console.error("Error con el token")
+        }
+    }
+})
 
 export default dash;
