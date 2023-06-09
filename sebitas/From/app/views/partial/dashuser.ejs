@@ -4,14 +4,6 @@
       <h1>
        Usuarios
       </h1>
-      <div class="info-box">
-        <span class="info-box-icon bg-aqua"><i class="ion ion-ios-people-outline"></i></span>
-        <div class="info-box-content">
-          <span class="info-box-text">N° de usuarios</span>
-          <span class="info-box-number"></span>
-        </div>
-        <!-- /.info-box-content -->
-      </div>
       <ol class="breadcrumb">
         <li><a href="/v1/usuario"><i class="fa fa-home"></i></a></li>
       </ol>
@@ -44,22 +36,18 @@
               <th>Nombre</th>
                <th>Action</th>
             </thead>
+            <% datos.forEach((elements)=>{ %>
             <tbody>
             <tr role="row" class="odd">
-              <td>ID</td>
-              <td>Nombre</td>
+              <td><%= elements.ID %></td>
+              <td><%= elements.NAME %></td>
               <td><a href="edit-user?id=<%= elements.ID %>&name=<%= elements.NAME %>" class="btn btn-warning">
                 <i class="fa fa-edit"></i>
              </a>
-              <button class="btn btn-danger">
+              <a class="btn btn-danger" onclick="confirmar(`<%= elements.ID %>`);">
                 <i class="fa fa-trash"></i>
-              </button>
+              </a>
             </td>
-            <% datos.forEach((elements)=>{ %>
-              <tr>
-                <td><%= elements.ID %></td>
-                <td><%= elements.NAME %></td>
-              </tr>
               <% }) %>
           </tbody>
           </table>
@@ -95,3 +83,26 @@
       <!-- /.modal-dialog -->
     </div>
   </div>
+  <script>
+    function confirmar(){
+      Swal.fire({
+  title: '¿Estas seguro?',
+  text: "¿Quieres borrar esto?",
+  icon: 'warning',
+  showCancelButton: true,
+  confirmButtonColor: '#3085d6',
+  cancelButtonColor: '#d33',
+  confirmButtonText: 'Si!'
+}).then((result) => {
+  if (result.isConfirmed) {
+    window.location.href=`borrar?id=${id}`
+    Swal.fire(
+      'Borrrado',
+      'Su registro se ha borrado',
+      'success'
+    )
+  }
+})
+    }
+  </script>
+ 

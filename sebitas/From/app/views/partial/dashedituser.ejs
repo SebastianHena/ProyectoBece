@@ -54,7 +54,7 @@
               </div>
               <div class="box-footer">
                 <button type="submit" class="btn btn-app">
-                  <i class="fa fa-save"></i> Save
+                  <i class="fa fa-save"></i> Guardar
                 </button>
                 <a class="btn btn-app">
                   <i class="fa fa-times"></i> Cancel
@@ -65,3 +65,25 @@
           </section>
 
  </div>
+ <script>
+   function confirmar(){
+      Swal.fire({
+  title: '¿Guardar cambios?',
+  text: "¿Guardaras los cambios?",
+  icon: 'question',
+  showCancelButton: true,
+  confirmButtonColor: '#3085d6',
+  cancelButtonColor: '#d33',
+  confirmButtonText: 'Si!'
+}).then((result) => {
+  if (result.isConfirmed) {
+    window.location.href=`borrar?id=${id}`
+    Swal.fire(
+      'Modificado',
+      'Se ha modificado el registro',
+      'success'
+    )
+  }
+})
+    }
+ </script>

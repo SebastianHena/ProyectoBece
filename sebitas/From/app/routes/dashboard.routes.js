@@ -105,19 +105,19 @@ dash.get("/categoria", (req, res)=>{
     }   
 });
 
-dash.post("/guardar", (req,res)=>{
+dash.post("/guardar", (req, res)=>{
     if(req.body.name){
-         let data={
+         let data = {
             name:req.body.name
         }
-        let method = "post";
+        let metodo = "post";
 
         if (req.body.id){
             data = {
                 id : req.body.id,
                 name : req.body.name
             }
-            method = "put"
+            metodo = "put"
         }
 
         let ruta = "http://localhost:3000/api/user";
@@ -131,12 +131,12 @@ dash.post("/guardar", (req,res)=>{
 
         try {
             const result = fetch(ruta,option)
-            .then(res=res.json())
+            .then(res=>res.json())
             .then(data=>{
-                console.log("datos guardados")
+                console.log(data)
             })
             .catch(err=>console.log("error al consumir la api" + err))
-            res.redirect("usuario")
+            res.redirect("/v1/usuario")
         } catch (error) {
             
         }
@@ -146,7 +146,7 @@ dash.post("/guardar", (req,res)=>{
     }
 });
 
-dash.get("/salir",(req,res)=>{
+dash.get("/salir",(req, res)=>{
      res.clearCookie("cksba")
      res.redirect("/");
 });
@@ -170,10 +170,50 @@ dash.get("/edit-user", (req, res)=>{
                 res.render("dash",{
                     "nombre":token.nombre,
                     "foto":token.foto,
-                    "menu": 1,
+                    "menu": 4,
                     "datos":datos
                 })   
      
+        } catch (error) {
+            console.error("Error con el token")
+        }
+    }
+})
+
+dash.get("/borrar", async (req, res)=>{
+    const id = req.query.id;
+
+    if(req.cookies.cksba){
+        try {
+            const token = jwt.verify(
+                re.cookies.cksba,
+                process.env.SECRET_KEY)
+
+                const url = `http://localhost:3000/api/user/${id}`;
+                const option = {
+                    method : "DELETE"
+                };
+                const result = await fetch (url,option)
+                .then(response => response.JSON())
+                .then(data =>{
+                    if (data[0].affectedRows==1){
+                        res.send(
+                            Swal.fire(
+                          'The Internet?',
+                          'That thing is still around?',
+                          'question'
+                        )
+                        
+                        )
+                        console.log("borrado")
+                    }else{
+                        console.log("no borrado")
+                    }
+                })
+
+                res.redirect("/v1/usuario")
+                
+
         } catch (error) {
             console.error("Error con el token")
         }
